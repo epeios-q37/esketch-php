@@ -17,7 +17,7 @@ script:
 - ./configure
 - make -j
 - php -dextension=modules/zndq.so test.php
-- cp zndq.so zndq.xcfg zndq.xlcl ..
+- cp modules/zndq.so zndq.xcfg zndq.xlcl ..
 # Managing 'eSketch'.
 - popd
 - make -j

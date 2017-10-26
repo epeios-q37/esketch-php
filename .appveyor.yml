@@ -1,6 +1,9 @@
 environment:
   version: 20171019
   affix: esketch
+  ext: dll
+  dir: $(affix)-php-v$(version)
+  zip: $(affix)znd-v$(version)-win-$(platform).zip  
 
 platform:
 # By default, it's the AMD64(/x64) version of PHP which is installed.
@@ -60,15 +63,9 @@ test_script:
 skip_tags: true  
   
 after_build:
-- echo | set /p="%affix%-v%version%" >>tmpfile.tmp || true
-- echo | set /p="-win-" >>tmpfile.tmp || true
-- echo | set /p="%platform%" >>tmpfile.tmp || true
-- set /p target= <tmpfile.tmp
-- echo .%target%.
-- set dir=%target%
-- mkdir %dir%
-- copy %affix%.dll %dir%
-- 7z a %target%.zip %dir%
+- mkdir %dir% || exit 1
+- copy %affix%znd.%ext% %dir%\%affix%znd_%platform%.%ext% || exit 1
+- 7z a %zip% %dir%
 
 artifacts:
 - path: '*.zip'
