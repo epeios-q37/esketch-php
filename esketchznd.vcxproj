@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <Project xmlns="http://schemas.microsoft.com/developer/msbuild/2003" xmlns:xpp="http://q37.info/xppq" DefaultTargets="Build">
   <PropertyGroup Label="UserMacros">
-    <PHPSrc>php-src-php-7.1.10</PHPSrc>
+    <PHPSrc>../php-src-php-7.1.10</PHPSrc>
     <PHP>C:\tools\php71</PHP>
   </PropertyGroup>
   <ItemGroup Label="ProjectConfigurations">
@@ -25,7 +25,7 @@
   <Import Project="Windows.targets"/>
   <Import Project="Details.props"/>
   <PropertyGroup Label="Globals">
-    <ProjectGuid>372c96e2-4c42-498a-80f3-425e48b5bb57</ProjectGuid>
+    <ProjectGuid>0dce405b-7707-4470-9137-617ea997c7fd</ProjectGuid>
     <RootNamespace>esketchznd</RootNamespace>
   </PropertyGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.Default.props"/>
