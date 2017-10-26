@@ -17,10 +17,11 @@ script:
 - ./configure
 - make -j
 - php -dextension=modules/zndq.so test.php
+- cp zndq.so zndq.xcfg zndq.xlcl ..
 # Managing 'eSketch'.
 - popd
 - make -j
-- php -dextension=zndq/modules/zndq.so test.php
+- php -dextension=./zndq.so test.php
 
 # To disable building on tags. Tags are supposed to begin with 'v' and only containing digits.
 branches:

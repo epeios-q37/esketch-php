@@ -22,6 +22,9 @@ install:
 
 before_build:
 - echo %APPVEYOR_PROJECT_NAME%
+# Retrieving, building and testing 'ZNDq'.
+- git clone https://github.com/epeios-q37/zndq.git
+- cd zndq
 # To maintainer : content of this section is very similar to the one in 'zndq.appveyor.yml'.
 - call "C:\Program Files\Microsoft SDKs\Windows\v7.1\Bin\SetEnv.cmd" /x64
 - call "C:\Program Files (x86)\Microsoft Visual Studio 14.0\VC\vcvarsall.bat" x86_amd64
@@ -32,22 +35,20 @@ before_build:
 - 7z x php.tgz
 - 7z x php.tar
 - cd php-src-php-7.1.10
-- buildconf.bat --add-modules-dir=c:\projects\zndq
+- buildconf.bat --add-modules-dir=c:\projects\%APPVEYOR_PROJECT_NAME%\zndq
 - configure.bat
 # We do not build from the source (no 'nmake'), as we use the already installed PHP binaries.
 # 'buildconf.bat' and 'configure.bat' are only launched to generate some files needed
 # to compile the extension (namely 'main/config.w32.h').
 - dir
 - cd ..
-# Retrieving, building and testing 'ZNDq'.
-- git clone https://github.com/epeios-q37/zndq.git
-- cd zndq
 - msbuild zndq.vcxproj
 - echo "***** 'ZNDq' TEST BEGIN *****" && C:\tools\php71\php -dextension=./zndq.dll test.php && echo "***** 'ZNDq' TEST END *****"
 # 'Installing' 'ZNDq'.
 - copy zndq.dll ..
 - copy zndq.xcfg ..
 - copy zndq.xlcl ..
+- cd ..
 
 test_script:
 - echo "***** 'eSketch' TEST BEGIN *****" && C:\tools\php71\php -dextension=./zndq.dll test.php && echo "***** 'eSketch' TEST END *****"
