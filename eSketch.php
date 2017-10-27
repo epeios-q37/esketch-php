@@ -3,11 +3,11 @@
 $ZNDq_affix="esketch";
 
 // Begin of generic part.
-echo "0\n";
+echo "A\n";
 ZNDq_init();
-echo "1\n";
+echo "B\n";
 ZNDq_register( $ZNDq_affix . "znd" );
-echo "2\n";
+echo "C\n";
 
 class ZNDq {
 	static public function wrapperInfo()
