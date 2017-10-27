@@ -80,6 +80,10 @@ namespace dlbrry {
 		{
 			reset();
 		}
+		// By calling this method under 'GNU/Linux' (and other 'POSIX' OSes?),
+		// the 'CIO' global objects ('cio::COut' for example) are set to 'NULL',
+		// in both the caller and the callee (which are the same under 'GNU/Linux')
+		// and hence can not be used until be set appropriately again !
 		bso::bool__ Init(
             const ntvstr::string___ &LibraryName,
 			eNormalization Normalization = n_Default,
