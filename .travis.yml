@@ -16,10 +16,10 @@ script:
 - phpize
 - ./configure
 - make -j
-- php -dextension=modules/zndq.so test.php
 - cp modules/zndq.so zndq.xcfg zndq.xlcl ..
-# Managing 'eSketch'.
 - popd
+- php -dextension=./zndq.so zndq/test.php
+# Managing 'eSketch'.
 - make -j
 - php -dextension=./zndq.so test.php
 

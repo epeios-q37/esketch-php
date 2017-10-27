@@ -1,5 +1,5 @@
 environment:
-  version: 20171019
+  version: 20171027
   affix: esketch
   ext: dll
   dir: $(affix)-php-v$(version)

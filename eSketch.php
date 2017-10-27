@@ -1,10 +1,13 @@
 <?php
 
-$ZNDq_affix="esketch";	// We are not interested in a extension;
+$ZNDq_affix="esketch";
 
 // Begin of generic part.
+echo "0\n";
 ZNDq_init();
+echo "1\n";
 ZNDq_register( $ZNDq_affix . "znd" );
+echo "2\n";
 
 class ZNDq {
 	static public function wrapperInfo()
