@@ -6,7 +6,7 @@ $ZNDq_affix="esketch";
 echo "A\n";
 ZNDq_init();
 echo "B\n";
-ZNDq_register( $ZNDq_affix . "znd" );
+ZNDq_register( './' . $ZNDq_affix . "znd" );
 echo "C\n";
 
 class ZNDq {
