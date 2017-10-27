@@ -18,13 +18,13 @@ else {
 	 $path = "/Users/csimon/bin/";
 		break;
 	default:
-	 echo "Unkonw OS !!!\n";
+	 echo "Unknown OS !!!\n";
 		break;
 	}
 }
-
+	
 ZNDq_init();
-ZNDq_register( $path . $ZNDq_affix . "znd" );
+ZNDq_register( str_replace( ' ', '\ ', str_replace( '\\', '/', $path ) ) . $ZNDq_affix . "znd" );
 
 class ZNDq {
 	static public function wrapperInfo()
